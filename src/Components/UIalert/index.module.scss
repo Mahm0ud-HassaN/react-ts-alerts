@@ -1,0 +1,65 @@
+$borderColor:rgba(255,25,0,0.322);
+$alertBg:rgb(192 29 29 / 15%);
+$alertcolor:#ef8d8dfa;
+// Success (نجاح)
+$alert-success-border: rgba(0, 128, 0, 0.3);
+$alert-success-bg: rgb(40 167 69 / 15%);
+$alert-success-color: #28a745;
+
+// Warning (تحذير)
+$alert-warning-border: rgba(255, 193, 7, 0.3);
+$alert-warning-bg: rgb(255 193 7 / 15%);
+$alert-warning-color: #ffc107;
+
+// Info (معلومة)
+$alert-info-border: rgba(23, 162, 184, 0.3);
+$alert-info-bg: rgb(23 162 184 / 15%);
+$alert-info-color: #17a2b8;
+
+// Primary (تنبيه عادي أو مهم)
+$alert-primary-border: rgba(0, 123, 255, 0.3);
+$alert-primary-bg: rgb(0 123 255 / 15%);
+$alert-primary-color: #007bff;
+
+
+@mixin alert($name,$color,$bg,$border) {
+    .#{$name}{
+        border: 1px dashed $border;
+        padding: 20px;
+        border-radius: 20px;
+        color: $color;
+        background-color: $bg;
+        .alertHeader{
+            display: flex;
+            justify-content: space-between;
+           span{
+            cursor: pointer;
+            &:hover{
+                color: red;
+            }
+            
+           }  
+        }
+        .alertTitle{
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+                margin-right:10px;
+                
+            }
+    
+        }
+        p{
+            margin-top: 20px;
+        }
+        
+    }
+}
+@include alert('alert-danger', $alertcolor, $alertBg, $borderColor);
+@include alert('alert-success', $alert-success-color, $alert-success-bg, $alert-success-border);
+@include alert('alert-warning', $alert-warning-color, $alert-warning-bg, $alert-warning-border);
+@include alert('alert-info', $alert-info-color, $alert-info-bg, $alert-info-border);
+@include alert('alert-primary', $alert-primary-color, $alert-primary-bg, $alert-primary-border);
+
